@@ -14,11 +14,12 @@ public:
 	void memManage(); //deletes junk
 	void tickPrint();
 
+	static SDL_Renderer* render1;
+
 	bool active() { return isRunning; };//tells if the game is active
 
 private:
 	bool isRunning;
 	int currentTick = 0;
 	SDL_Window *window1;
-	SDL_Renderer *render1;
 };

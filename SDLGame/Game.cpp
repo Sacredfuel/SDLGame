@@ -1,19 +1,24 @@
 #include "Game.h"
 #include "Texture.h"
 #include "GameEngine.h"
+#include "Tilemap.h"
+#include "ECPS.h"
+#include "Components.h"
 #include <stdio.h>
 
 GameEngine* player = nullptr;
+GameEngine* player2 = nullptr;
 
 Game::Game() {} //constructor
 Game::~Game() {} //destructor
 
-/*Debugging code*/
-
-SDL_Texture* playerDeb;
+SDL_Renderer* Game::render1 = nullptr;
 SDL_Rect* sourceRect, destinationRect;
+Tilemap* map;
 
-/*End Debug*/
+Manager entityManager;
+auto& newPlayer(entityManager.addEntity());
+
 
 
 void Game::init(const char* windowname, int xpos, int ypos, int width, int height, bool maximize)
@@ -36,15 +41,15 @@ void Game::init(const char* windowname, int xpos, int ypos, int width, int heigh
 		}
 		isRunning = true;
 		
-		/*Begin Debug*/
-		playerDeb = Texture::generateTexture("Assets/CharacterForward.png", render1);
-
-		player = new GameEngine(playerDeb, render1, 0, 0);
+		player = new GameEngine("Assets/VillianMain.png", 0, 0);
+		player2 = new GameEngine("Assets/CharacterForward.png", 0, 400);
+		newPlayer.addComponent<Position>();
+		newPlayer.getComponent<Position>().setPos(200, 200);
+		map = new Tilemap();
 	}
 	else {
 		isRunning = false;
 	}
-
 }
 
 void Game::eventHandler()
@@ -63,10 +68,9 @@ void Game::eventHandler()
 void Game::update()
 {
 	player->update();
-
-	/*Begin Debugging Code*/
-	//destinationRect.h = 63, destinationRect.w = 45;
-	/*End Debugging Code*/
+	player2->update();
+	entityManager.update();
+	//map->LoadTilemap();
 }
 
 void Game::tickPrint()
@@ -80,13 +84,12 @@ void Game::tickPrint()
 void Game::render()
 {
 	SDL_RenderClear(render1);
+	map->DrawTileMap();
 	player->render();
-	/*Begin Debugging Code*/
-	//SDL_RenderCopy(render1, playerDeb, NULL, &destinationRect);
-	/*End Debugging Code*/
+	player2->render();
 	SDL_RenderPresent(render1);
 }
-
+// all the code for render and update are inside GameEngine.cpp
 void Game::memManage()
 {
 	SDL_DestroyWindow(window1);

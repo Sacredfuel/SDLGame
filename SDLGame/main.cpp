@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
 	Uint32 frameStart;
 	int frameTime;
 
-	g1->init("DataFrame", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 600, 400, false);
+	g1->init("DataFrame", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 640, false);
 
 	while (g1->active()) {
 

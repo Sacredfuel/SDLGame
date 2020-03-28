@@ -3,7 +3,7 @@
 class GameEngine {
 public:
 
-	GameEngine(SDL_Texture* tex, SDL_Renderer* renderRec, int x, int y);
+	GameEngine(const char* texloc , int x, int y);
 	~GameEngine();
 
 	void update();
@@ -15,5 +15,4 @@ private:
 	int ypos;
 	SDL_Texture* texture;
 	SDL_Rect sourceRect, destinationRect;
-	SDL_Renderer* renderer;
 };
