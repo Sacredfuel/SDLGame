@@ -12,7 +12,7 @@ public:
 	void update(); //updates events in the game
 	void render(); //renders textures according to update
 	void memManage(); //deletes junk
-	void tickPrint();
+	void tickPrint();//outputs the current Tick every 100 ticks
 
 	static SDL_Renderer* render1;
 

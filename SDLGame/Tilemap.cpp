@@ -3,6 +3,8 @@
 
 //20 rows by 25 columns
 int lvl1[20][25]={
+	//sample 2d matrix
+	//later on we will store them as txt files to make it more readible
 	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
 	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
@@ -28,10 +30,10 @@ int lvl1[20][25]={
 Tilemap::Tilemap()
 {
 	dirt = Texture::generateTexture("Assets/Dirt.PNG");
-	grass = Texture::generateTexture("assets/grass.png");
-	water = Texture::generateTexture("assets/water.png");
+	grass = Texture::generateTexture("assets/grass.png");//not yet implemented
+	water = Texture::generateTexture("assets/water.png");//not yet implemented
 
-	LoadTilemap(lvl1);
+	LoadTilemap(lvl1);//depends on where the character is, we would need a map
 
 	source.x = 0;
 	source.y = 0;

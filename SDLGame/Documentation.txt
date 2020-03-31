@@ -1,0 +1,36 @@
+This is the general documentation for Ryan Vaz and Justin Lau's AP Computer Science Principles Create App
+Control Flow-
+1. This program starts compilation at main.cpp and initializes a game.
+   After that, it starts looping the render, update and event handler.
+2. When the Game is initialized, it heads into the Game.cpp file and makes
+   the GameEngine object.
+3. The initialization of the Game makes a window(window1), and a global renderer
+   and it creates 2 SDL Textures with a tilemap
+4. The SDL Texture is stored as a game engine with movement functions and storing
+   the main texture, it generates this using the generateTexture function from texture.cpp
+5. The tilemap is it's own class(Tilemap.cpp), which uses a 2d array to store integer values
+   and each integer value cooresponds to a texture in memory.
+6. Once the textures are initializes, the while loop begins running and the event handler,
+   updater and renderer being running
+7. g1->eventHandler() takes in input from the user and tries to map it onto the switch in Game.cpp
+   Event Handler also has function GameEngine::EventHandler which maps UI to WASD
+8. g1->update() calls all GameEngine objects to move the destinationRectangle in GameEngine.cpp
+9. g1->render() updates all textures and maps it into the window1
+10.g1->memManage() runs when the game loop ends, it cleans up all loose memory and closes SDL
+
+Changelog:
+29/3/20 - First push to github, the code is able to put a sprite on screen and is able to make it move
+but the user has no control over the movement. A basic Entity Component system is added, we will work
+on it tommorow, or try to find a way to make the character move.
+
+30/3/20 - This code is now able to take in UserInput via WASD in the g1->update() function, we also
+removed the Entity Component system in favor of a Model Vector which we will implement later on
+
+ToDo 31/3: Direction Handling, Creating Enemies, Making the Vector
+
+Goals:
+	Finish the first Tileset and pixelarts
+    Create DirectionHandler
+	Create ActionHandler (expand on the direction handler)
+	Create BattleHandler (Might create new window)
+	Extra Goal: CutsceneHandler (likely using threads)

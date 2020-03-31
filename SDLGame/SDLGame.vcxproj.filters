@@ -44,11 +44,8 @@
     <ClInclude Include="Tilemap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ECPS.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Components.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Documentation.txt" />
   </ItemGroup>
 </Project>
