@@ -1,5 +1,6 @@
 #pragma once
 #include "Game.h"
+#include <string>
 
 class Tilemap
 {
@@ -8,7 +9,8 @@ public:
 	Tilemap();
 	~Tilemap();
 
-	void LoadTilemap(int arr[20][25]);
+	void LoadTilemapFromArr(int arr[20][25]);
+	void LoadTilemap(std::string s);
 	void DrawTileMap();
 
 private:

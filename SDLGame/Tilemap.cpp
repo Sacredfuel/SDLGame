@@ -1,5 +1,7 @@
 #include "Tilemap.h"
 #include "Texture.h"
+#include <istream>
+#include <fstream>
 
 //20 rows by 25 columns
 int lvl1[20][25]={
@@ -30,10 +32,10 @@ int lvl1[20][25]={
 Tilemap::Tilemap()
 {
 	dirt = Texture::generateTexture("Assets/Dirt.PNG");
-	grass = Texture::generateTexture("assets/grass.png");//not yet implemented
+	grass = Texture::generateTexture("assets/Grass.png");
 	water = Texture::generateTexture("assets/water.png");//not yet implemented
 
-	LoadTilemap(lvl1);//depends on where the character is, we would need a map
+	/*LoadTilemapFromArr(lvl1); */  //depends on where the character is, we would need a map
 
 	source.x = 0;
 	source.y = 0;
@@ -45,13 +47,24 @@ Tilemap::Tilemap()
 	destination.h = 32;
 }
 
-void Tilemap::LoadTilemap(int arr[20][25])
+void Tilemap::LoadTilemapFromArr(int arr[20][25])
 {
 	for (int i = 0; i < 20; i++) {
 		for (int j = 0; j < 25; j++) {
 			TileMap[i][j] = arr[i][j];
 		}
 	}
+}
+
+void Tilemap::LoadTilemap(std::string s)
+{
+	std::ifstream indata;
+	indata.open(s);
+	int myArray[3][5];
+	for (int i = 0; i < 20; i++)
+		for (int j = 0; j < 25; j++)
+			indata >> TileMap[i][j];
+	//indata.close;
 }
 
 void Tilemap::DrawTileMap()
@@ -70,10 +83,10 @@ void Tilemap::DrawTileMap()
 				Texture::Draw(dirt, source, destination);
 				break;
 			case 1:
-				Texture::Draw(water, source, destination);
+				Texture::Draw(grass, source, destination);
 				break;
 			case 2:
-				Texture::Draw(grass, source, destination);
+				Texture::Draw(water, source, destination);
 				break;
 			default:
 				break;

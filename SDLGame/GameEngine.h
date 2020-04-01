@@ -1,5 +1,6 @@
 #pragma once
 #include "Game.h"
+
 class GameEngine {
 public:
 
@@ -18,4 +19,12 @@ private:
 	//Texture object that holds the image of the respective character
 	SDL_Rect sourceRect, destinationRect;
 	//used to make size proportions for characters
+
+};
+
+enum Type {
+	PLAYER = 0,
+	ENEMY = 1,
+	BOSS = 2,
+	UNDEF = 9
 };

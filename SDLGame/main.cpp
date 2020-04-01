@@ -1,5 +1,6 @@
 #include "SDL.h"
 #include "Game.h"
+#include "GameStack.h"
 #undef main
 
 Game* g1 = nullptr;

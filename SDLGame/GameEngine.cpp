@@ -36,22 +36,36 @@ void GameEngine::update()
 
 void GameEngine::EventHandler(SDL_Event c) {
 	//handles WASD input
+	SDL_KeyCode lastMotion;
 	switch (c.key.keysym.sym) {
 	case SDLK_d:
+		if (lastMotion != SDLK_d) {
+			//turn
+		}
 		xpos+=5;
 		break;
 	case SDLK_a:
+		if (lastMotion != SDLK_a) {
+			//turn
+		}
 		xpos-=5;
 		break;
 	case SDLK_w:
+		if (lastMotion != SDLK_w) {
+			//turn
+		}
 		ypos -= 5;
 		break;
 	case SDLK_s:
+		if (lastMotion != SDLK_s) {
+			//turn
+		}
 		ypos += 5;
 		break;
 	default:
 		break;
 	}
+	lastMotion = c.key.keysym.sym;
 }
 
 void GameEngine::render()

@@ -19,14 +19,16 @@ Control Flow-
 10.g1->memManage() runs when the game loop ends, it cleans up all loose memory and closes SDL
 
 Changelog:
-29/3/20 - First push to github, the code is able to put a sprite on screen and is able to make it move
+27/3/20 - First push to github, the code is able to put a sprite on screen and is able to make it move
 but the user has no control over the movement. A basic Entity Component system is added, we will work
 on it tommorow, or try to find a way to make the character move.
 
 30/3/20 - This code is now able to take in UserInput via WASD in the g1->update() function, we also
 removed the Entity Component system in favor of a Model Vector which we will implement later on
 
-ToDo 31/3: Direction Handling, Creating Enemies, Making the Vector
+31/3/20 - Tilemap loader has been implemented using a ifstream to read the TileMap stored in Maps folder
+
+
 
 Goals:
 	Finish the first Tileset and pixelarts
