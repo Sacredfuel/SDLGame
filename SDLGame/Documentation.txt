@@ -28,6 +28,8 @@ removed the Entity Component system in favor of a Model Vector which we will imp
 
 31/3/20 - Tilemap loader has been implemented using a ifstream to read the TileMap stored in Maps folder
 
+2/4/20 - Direction manager has been implemented and collision detector framework is in place
+
 
 
 Goals:

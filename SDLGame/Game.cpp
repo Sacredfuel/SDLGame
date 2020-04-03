@@ -58,7 +58,7 @@ void Game::eventHandler()
 		isRunning = false;                                                      //stops the app when gets quit request
 		break;
 	case SDL_KEYDOWN:
-		player->EventHandler(event1);                                           //updates Villian sprite with UI in event1 (to remove)
+		player->EventHandler(event1, map->flag);                                           //updates Villian sprite with UI in event1 (to remove)
 		break;
 	default:
 		break;

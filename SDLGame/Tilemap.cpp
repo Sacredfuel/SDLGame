@@ -32,8 +32,9 @@ int lvl1[20][25]={
 Tilemap::Tilemap()
 {
 	dirt = Texture::generateTexture("Assets/Dirt.PNG");
-	grass = Texture::generateTexture("assets/Grass.png");
-	water = Texture::generateTexture("assets/water.png");//not yet implemented
+	grass = Texture::generateTexture("Assets/Grass.png");
+	water = Texture::generateTexture("Assets/Water.png");
+	sign = Texture::generateTexture("Assets/GrassSign.png");
 
 	/*LoadTilemapFromArr(lvl1); */  //depends on where the character is, we would need a map
 
@@ -81,12 +82,19 @@ void Tilemap::DrawTileMap()
 			{
 			case 0:
 				Texture::Draw(dirt, source, destination);
+				flag[i][j] = true;
 				break;
 			case 1:
 				Texture::Draw(grass, source, destination);
+				flag[i][j] = true;
 				break;
 			case 2:
 				Texture::Draw(water, source, destination);
+				flag[i][j] = false;
+				break;
+			case 3:
+				Texture::Draw(sign, source, destination);
+				flag[i][j] = false;
 				break;
 			default:
 				break;
