@@ -3,6 +3,7 @@
 #include <istream>
 #include <fstream>
 
+
 //20 rows by 25 columns
 int lvl1[20][25]={
 	//sample 2d matrix
@@ -35,6 +36,7 @@ Tilemap::Tilemap()
 	grass = Texture::generateTexture("Assets/Grass.png");
 	water = Texture::generateTexture("Assets/Water.png");
 	sign = Texture::generateTexture("Assets/GrassSign.png");
+	enemy = Texture::generateTexture("Assets/EnemySprite.png");
 
 	/*LoadTilemapFromArr(lvl1); */  //depends on where the character is, we would need a map
 
@@ -46,6 +48,7 @@ Tilemap::Tilemap()
 
 	destination.w = 32;
 	destination.h = 32;
+
 }
 
 void Tilemap::LoadTilemapFromArr(int arr[20][25])
@@ -61,11 +64,27 @@ void Tilemap::LoadTilemap(std::string s)
 {
 	std::ifstream indata;
 	indata.open(s);
-	int myArray[3][5];
 	for (int i = 0; i < 20; i++)
 		for (int j = 0; j < 25; j++)
 			indata >> TileMap[i][j];
 	//indata.close;
+}
+
+void Tilemap::DrawEnemies() {
+	Enemy e;
+	Enemy::enemData* data = e.getEnemies();
+	for (int i = 0; i < 20; i++) {
+		for (int j = 0; j < 25; j++) {
+			for (int k = 0; k < e.length - 1; k++) {
+				if (data->xpos == i && data->ypos == j) {
+					destination.x = j * 32;
+					destination.y = i * 32;
+					Texture::Draw(enemy, source, destination);
+				}
+			}
+		}
+	}
+	e.~Enemy();
 }
 
 void Tilemap::DrawTileMap()

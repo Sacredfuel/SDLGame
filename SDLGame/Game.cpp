@@ -41,6 +41,7 @@ void Game::init(const char* windowname, int xpos, int ypos, int width, int heigh
 		player2 = new GameEngine("Assets/CharacterForward.png", 0, 400);        //creates new prite at 0,400 with name player1
 
 		map = new Tilemap();                                                    //creates a tilemap
+		map->DrawEnemies();
 		map->LoadTilemap("Maps/SampleMap.txt");                                 //loads SampleMap
 	}
 	else {

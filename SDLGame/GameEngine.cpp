@@ -37,8 +37,8 @@ void GameEngine::update()
 void GameEngine::EventHandler(SDL_Event c, bool flag[20][25]) {
 	//handles WASD input
 	SDL_Keycode lastMotion{};
-	currentXtile = (int)destinationRect.x / 20;
-	currentYtile = (int)destinationRect.y / 25;
+	currentXtile = (int)destinationRect.x / 32;
+	currentYtile = (int)destinationRect.y / 20;
 	switch (c.key.keysym.sym) {
 	case SDLK_d:
 		printf("%d , %d\n", currentXtile, currentYtile);
