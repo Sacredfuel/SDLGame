@@ -35,8 +35,8 @@ Tilemap::Tilemap()
 	dirt = Texture::generateTexture("Assets/Dirt.PNG");
 	grass = Texture::generateTexture("Assets/Grass.png");
 	water = Texture::generateTexture("Assets/Water.png");
-	sign = Texture::generateTexture("Assets/GrassSign.png");
 	enemy = Texture::generateTexture("Assets/EnemySprite.png");
+	boss = Texture::generateTexture("Assets/VillianMain.png");
 
 	/*LoadTilemapFromArr(lvl1); */  //depends on where the character is, we would need a map
 
@@ -101,19 +101,20 @@ void Tilemap::DrawTileMap()
 			{
 			case 0:
 				Texture::Draw(dirt, source, destination);
-				flag[i][j] = true;
 				break;
 			case 1:
 				Texture::Draw(grass, source, destination);
-				flag[i][j] = true;
 				break;
 			case 2:
 				Texture::Draw(water, source, destination);
-				flag[i][j] = false;
 				break;
 			case 3:
-				Texture::Draw(sign, source, destination);
-				flag[i][j] = false;
+				Texture::Draw(grass, source, destination);
+				Texture::Draw(enemy, source, destination);
+				break;
+			case 4:
+				Texture::Draw(dirt, source, destination);
+				Texture::Draw(boss, source, destination);
 				break;
 			default:
 				break;

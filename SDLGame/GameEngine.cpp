@@ -34,39 +34,29 @@ void GameEngine::update()
 	*/
 }
 
-void GameEngine::EventHandler(SDL_Event c, bool flag[20][25]) {
+void GameEngine::EventHandler(SDL_Event c) {
 	//handles WASD input
 	SDL_Keycode lastMotion{};
-	currentXtile = (int)destinationRect.x / 32;
-	currentYtile = (int)destinationRect.y / 20;
+	currentXtile = (int)destinationRect.x;
+	currentYtile = (int)destinationRect.y;
 	switch (c.key.keysym.sym) {
 	case SDLK_d:
 		printf("%d , %d\n", currentXtile, currentYtile);
-		if (lastMotion != SDLK_d)
-			texture = Texture::generateTexture("Assets/VillianMain.png");
-		if(flag[currentXtile + 1][currentYtile])
-			xpos += 5;
+		texture = Texture::generateTexture("Assets/CharacterForward.png");
+		xpos += 15;
 		break;
 	case SDLK_a:
 		printf("%d , %d\n", currentXtile, currentYtile);
-		if (lastMotion != SDLK_a) 
-			texture = Texture::generateTexture("Assets/VillianMainLeft.png");
-		if(flag[currentXtile - 1][currentYtile])
-			xpos -= 5;
+		texture = Texture::generateTexture("Assets/CharacterLeft.png");
+		xpos -= 15;
 		break;
 	case SDLK_w:
 		printf("%d , %d\n", currentXtile, currentYtile);
-		if (lastMotion != SDLK_w)
-			texture = Texture::generateTexture("Assets/VillianMainUp.png");
-		if(flag[currentXtile][currentYtile+1])
-			ypos -= 15;
+		ypos -= 15;
 		break;
 	case SDLK_s:
 		printf("%d , %d\n", currentXtile, currentYtile);
-		if (lastMotion != SDLK_s) {}
-			//turn
-		if(flag[currentXtile][currentYtile-1])
-			ypos += 5;
+		ypos += 15;
 		break;
 	default:
 		break;
@@ -84,3 +74,17 @@ void GameEngine::redefTexture(const char* s)
 {
 	texture = Texture::generateTexture(s);
 }
+
+void GameEngine::move(int x, int y)
+{
+	xpos = x;
+	ypos = y;
+}
+int GameEngine::getX()
+{
+	return destinationRect.x;
+}
+int GameEngine::getY()
+{
+	return destinationRect.y;
+} 

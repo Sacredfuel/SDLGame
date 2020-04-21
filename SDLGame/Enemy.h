@@ -5,7 +5,7 @@
 
 class Enemy {
 public:
-		struct enemData {
+	struct enemData {
 		int xpos;
 		int ypos;
 		char type;

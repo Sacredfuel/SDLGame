@@ -9,9 +9,12 @@ public:
 	~GameEngine();//destructor
 
 	void update();//sets the character to appear at a certain x and y coord
-	void EventHandler(SDL_Event c, bool flag[20][25]);//handles all WASD input
+	void EventHandler(SDL_Event c);//handles all WASD input
 	void render();//puts character on the screen based on coords from update()
 	void redefTexture(const char* s);
+	void move(int x, int y);
+	int getX();
+	int getY();
 
 private:
 

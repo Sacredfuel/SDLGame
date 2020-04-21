@@ -14,7 +14,6 @@ public:
 	void LoadTilemap(std::string s);
 	void DrawEnemies();
 	void DrawTileMap();
-	bool flag[20][25];
 
 private:
 
@@ -25,6 +24,7 @@ private:
 	SDL_Texture* water;
 	SDL_Texture* sign;
 	SDL_Texture* enemy;
+	SDL_Texture* boss;
 
 	int TileMap[20][25];
 

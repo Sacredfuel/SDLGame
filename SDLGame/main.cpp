@@ -30,6 +30,7 @@ int main(int argc, char *argv[]) {
 		g1->update();
 		g1->render();
 		g1->tickPrint();
+		g1->moveChar();
 		//check g1 functions->Game.cpp
 
 		frameTime = SDL_GetTicks() - frameStart;
