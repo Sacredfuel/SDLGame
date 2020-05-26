@@ -19,31 +19,31 @@ Tilemap* map;
 void Game::init(const char* windowname, int xpos, int ypos, int width, int height, bool maximize)
 {
 	int flag = 0;
-	if (maximize) {                                                             //checks the user for fullscreen
+	if (maximize) {                                                             
 		flag = SDL_WINDOW_FULLSCREEN;
 	}
-	if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {                                   //initializes SDL
+	if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {                                   
 		printf("System Initializition has begun...\n");
 		window1 = SDL_CreateWindow(windowname, xpos, ypos, width, height, SDL_WINDOW_SHOWN);
 
 		if (window1) { 
-			printf("System window initialized!\n");                             //if the window not = 0(false), then it is created
+			printf("System window initialized!\n");                     
 		}
 		render1 = SDL_CreateRenderer(window1, -1, 0);
-		if (render1) {                                                          //if the renderer not = 0(false), then it is created
+		if (render1) {                                                        
 			SDL_SetRenderDrawColor(render1, 255, 255, 255, 255);
 			printf("System renderer initialized!\n");
 		}
 		isRunning = true;
 		
-		player = new GameEngine("Assets/CharacterForward.png", 0, 400);         //creates new sprite with name player
+		player = new GameEngine("Assets/CharacterForward.png", 0, 400);         
 
-		map = new Tilemap();                                                    //creates a tilemap
+		map = new Tilemap();                                                    
 		map->DrawEnemies();
-		map->LoadTilemap("Maps/SampleMapMain.txt");                             //loads SampleMap
+		map->LoadTilemap("Maps/SampleMapMain.txt");                            
 	}
 	else {
-		isRunning = false;                                                      //if SDL fails to initialize, stop the game
+		isRunning = false;                                                      
 	}
 }
 
